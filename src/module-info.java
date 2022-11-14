@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author yoann
- *
- */
-module PaulSabre {
-}

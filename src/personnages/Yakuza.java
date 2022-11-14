@@ -4,24 +4,22 @@ public class Yakuza extends Humain{
 	private String clan;
 	private int reputation;
 
-	public Yakuza(String nom, String boissonPref, int argent, String clan, int reputation) {
+	public Yakuza(String nom, String boissonPref, int argent, String clan) {
 		super(nom, boissonPref, argent);
 		this.clan = clan;
-		this.reputation = reputation;
+		this.reputation = 0;
 	}
 	
-	public int getReputation() { // ou protected int reputation (ligne 5)
+	public int getReputation() {
 		return reputation;
 	}
 	
 	public void extorquer(Commercant victime) {
-		int argentVole;
-		
-		parler("Tiens, tiens, ne serait-ce pas un faible marchand qui passe par lÃ  ?");
-		parler(victime.getNom() + ", si tu tiens Ã  la vie donne moi ta bourse !");
-		argentVole = victime.seFaireExtorquer();
+		parler("Tiens, tiens, ne serait-ce pas un faible marchand qui passe par là  ?");
+		parler(victime.getNom() + ", si tu tiens à la vie donne moi ta bourse !");
+		int argentVole = victime.seFaireExtorquer();
 		gagnerArgent(argentVole);
-		parler("Jâ€™ai piquÃ© les " + argentVole + " sous de Marco, ce qui me fait " + getArgent() + " sous dans ma poche. Hi ! Hi !");
+		parler("J'ai piqué les " + argentVole + " sous de Marco, ce qui me fait " + getArgent() + " sous dans ma poche. Hi ! Hi !");
 		reputation++;
 	}
 	
@@ -29,14 +27,14 @@ public class Yakuza extends Humain{
 		int argentPerdu;
 		argentPerdu = getArgent();
 		reputation--;
-		parler("Jâ€™ai perdu mon duel et mes " + argentPerdu + " sous, snif... J'ai dÃ©shonorÃ© le clan de " + clan + ".");
+		parler("J'ai perdu mon duel et mes " + argentPerdu + " sous, snif... J'ai déshonoré le clan de " + clan + ".");
 		return argentPerdu;
 	}
 	
 	public void gagner(int gain) {
 		gagnerArgent(gain);
 		reputation++;
-		parler("Ce ronin pensait vraiment battre " + getNom() + " du clan de " + clan + " ? Je l'ai dÃ©pouillÃ© de ses " + gain + " sous.");
+		parler("Ce ronin pensait vraiment battre " + getNom() + " du clan de " + clan + " ? Je l'ai dépouillé de ses " + gain + " sous.");
 	}
 
 }

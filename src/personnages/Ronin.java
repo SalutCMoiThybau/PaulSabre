@@ -3,9 +3,9 @@ package personnages;
 public class Ronin extends Humain{
 	private int honneur;
 
-	public Ronin(String nom, String boissonPref, int argent, int honneur) {
+	public Ronin(String nom, String boissonPref, int argent) {
 		super(nom, boissonPref, argent);
-		this.honneur = honneur;
+		this.honneur = 1;
 	}
 	
 	public void donner(Commercant beneficiaire) {
@@ -23,10 +23,10 @@ public class Ronin extends Humain{
 	public void provoquer(Yakuza adversaire) {
 		int force = honneur*2;
 		
-		parler("Je t'ai retrouvÃ© vermine, tu vas payer pour ce que tu as fait Ã  ce pauvre marchand !");
+		parler("Je t'ai retrouvé vermine, tu vas payer pour ce que tu as fait à  ce pauvre marchand !");
 		
 		if (force >= adversaire.getReputation()) {
-			parler("Je tâ€™ai eu petit yakusa !");
+			parler("Je t'ai eu petit yakusa !");
 			gagnerArgent(adversaire.perdre());
 			honneur++;
 		} else {
